@@ -102,7 +102,7 @@ export default function Home() {
             src="/images/wedding/hero-indian-couple.jpg"
             alt=""
             fill
-            className="object-cover opacity-[0.06]"
+            className="object-cover opacity-[0.18]"
             priority
           />
         </div>
