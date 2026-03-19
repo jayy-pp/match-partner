@@ -61,11 +61,6 @@ export default function WaitlistForm({
       >
         मारू प्रजापति - Add Profile!
       </button>
-      <p
-        className={`text-xs mt-2 text-center ${isDark ? "text-white/50" : "text-text-muted"}`}
-      >
-        No spam · We&apos;ll only contact you about the launch
-      </p>
     </div>
   );
 }

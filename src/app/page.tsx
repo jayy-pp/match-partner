@@ -178,9 +178,6 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Waitlist Form */}
-          <WaitlistForm />
-
           {/* Stats */}
           {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mt-12 mb-16">
             {[
@@ -869,10 +866,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          <div className="mt-12">
-            <WaitlistForm />
-          </div>
         </div>
       </section>
 
@@ -906,56 +899,161 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Highlighted: Maru Prajapati */}
+          <div className="relative rounded-2xl overflow-hidden border-2 border-primary shadow-2xl shadow-primary/20 mb-10">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/images/wedding/couple-phera.jpg"
+                alt="Maru Prajapati traditional wedding ceremony"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1280px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/70" />
+            </div>
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 p-8 sm:p-10 items-center">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-semibold mb-4">
+                  🙏 Featured Community
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                  Prajapati Matrimony
+                </h3>
+                <p className="text-white/85 mb-4">
+                  Specialized matching for Maru Prajapati families with Gotra
+                  and Pravara awareness. Find verified profiles from your own
+                  community with our dedicated matchmaking tools.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {[
+                    "Gotra & Pravara aware matching",
+                    "Verified Prajapati family profiles",
+                    "Community elders can collaborate",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-2 text-white/80 text-sm"
+                    >
+                      <svg
+                        className="w-4 h-4 text-accent flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <WaitlistForm />
+              </div>
+              <div className="hidden md:flex items-center justify-center">
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/wedding/couple-phera.jpg"
+                    alt="Maru Prajapati couple during phera ceremony"
+                    fill
+                    className="object-cover"
+                    sizes="500px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg p-2.5 flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-4 h-4 text-green-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-secondary">
+                        100% Verified Profiles
+                      </p>
+                      <p className="text-[10px] text-text-muted">
+                        Aadhaar authenticated
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Other Communities Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              {
-                name: "Brahmin Matrimony",
-                desc: "Specialized matching for Brahmin families with Gotra and Pravara awareness.",
-                icon: "🙏",
-              },
               {
                 name: "Marathi Matrimony",
                 desc: "Community-specific profiles for Marathi-speaking families and traditions.",
-                icon: "🏛️",
+                image: "/images/wedding/hindu-wedding-couple.jpg",
               },
               {
                 name: "Tamil Matrimony",
                 desc: "Tamil Nadu focused matching with Nakshatram and Rasi compatibility.",
-                icon: "🌺",
+                image: "/images/wedding/indian-bride.jpg",
               },
               {
                 name: "NRI Matrimony",
                 desc: "Connecting NRI families in USA, UK, Canada, and Australia with homeland matches.",
-                icon: "✈️",
+                image: "/images/wedding/romantic-indian-couple.jpg",
               },
               {
                 name: "Gujarati Matrimony",
                 desc: "Dedicated profiles for Gujarati communities including Patel and Jain families.",
-                icon: "🎭",
+                image: "/images/wedding/couple-mehndi.jpg",
               },
               {
                 name: "Bengali Matrimony",
                 desc: "Culturally aware matching for Bengali families with Gotro and Kulin consideration.",
-                icon: "🎨",
+                image: "/images/wedding/wedding-decor.jpg",
               },
               {
                 name: "Punjabi Matrimony",
                 desc: "Community profiles for Punjabi Hindu families including Khatri and Arora.",
-                icon: "🎵",
+                image: "/images/wedding/punjabi-newlyweds.jpg",
               },
               {
                 name: "Telugu Matrimony",
                 desc: "Matching for Telugu-speaking families with caste and sub-caste awareness.",
-                icon: "💎",
+                image: "/images/wedding/indian-couple-traditional.jpg",
               },
             ].map((item) => (
               <div
                 key={item.name}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all hover:shadow-lg hover:shadow-white/5"
               >
-                <span className="text-3xl mb-3 block">{item.icon}</span>
-                <h3 className="text-white font-semibold mb-2">{item.name}</h3>
-                <p className="text-white/60 text-sm">{item.desc}</p>
+                <div className="relative h-40">
+                  <Image
+                    src={item.image}
+                    alt={`${item.name} - Indian wedding tradition`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/60 to-transparent" />
+                  <h3 className="absolute bottom-3 left-4 right-4 text-white font-bold text-base">
+                    {item.name}
+                  </h3>
+                </div>
+                <div className="p-4 bg-white/5">
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -1184,7 +1282,6 @@ export default function Home() {
             Join 10,000+ Hindu families already using MatchPartner to find
             trusted, compatible life partners.
           </p>
-          <WaitlistForm variant="dark" />
         </div>
       </section>
     </>
