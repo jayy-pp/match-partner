@@ -196,6 +196,140 @@ export const seoConfigs = {
   },
 }
 
+// ─── New Schema Helpers ───────────────────────────────────────────────────────
+
+/** Person / ProfilePage — use when a member profile page is launched */
+export function generatePersonJsonLd(person: {
+  id: string          // e.g. "https://matchpartner.in/profile/123"
+  name: string
+  description?: string
+  image?: string
+  gender?: 'Male' | 'Female' | 'Other'
+  birthDate?: string  // ISO 8601 e.g. "1995-06-15"
+  homeLocation?: { city: string; state: string }
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': person.id,
+    mainEntity: {
+      '@type': 'Person',
+      '@id': `${person.id}#person`,
+      name: person.name,
+      description: person.description,
+      image: person.image,
+      gender: person.gender,
+      birthDate: person.birthDate,
+      homeLocation: person.homeLocation
+        ? {
+            '@type': 'Place',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: person.homeLocation.city,
+              addressRegion: person.homeLocation.state,
+              addressCountry: 'IN',
+            },
+          }
+        : undefined,
+    },
+  }
+}
+
+/** Review — for individual success story / testimonial */
+export function generateReviewJsonLd(review: {
+  author: string
+  reviewBody: string
+  ratingValue: number
+  datePublished: string
+  itemReviewed?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: review.author,
+    },
+    reviewBody: review.reviewBody,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.ratingValue,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    datePublished: review.datePublished,
+    itemReviewed: {
+      '@type': 'Service',
+      name: review.itemReviewed || 'MatchPartner Hindu Matrimony',
+      url: 'https://matchpartner.in',
+    },
+  }
+}
+
+/** AggregateRating — standalone for pages that need it independently */
+export function generateAggregateRatingJsonLd(config: {
+  ratingValue: number
+  reviewCount: number
+  bestRating?: number
+  worstRating?: number
+  itemName?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: config.itemName || 'MatchPartner Hindu Matrimony',
+    description: "India's most trusted Hindu matrimony platform",
+    url: 'https://matchpartner.in',
+    brand: {
+      '@type': 'Brand',
+      name: 'MatchPartner',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: config.ratingValue,
+      reviewCount: config.reviewCount,
+      bestRating: config.bestRating ?? 5,
+      worstRating: config.worstRating ?? 1,
+    },
+  }
+}
+
+/** Offer — for pricing / subscription plans */
+export function generateOfferJsonLd(plan: {
+  name: string
+  description: string
+  price: number
+  priceCurrency?: string
+  billingDuration: string   // e.g. "P3M" (ISO 8601 duration)
+  url: string
+  availability?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Offer',
+    name: plan.name,
+    description: plan.description,
+    price: plan.price,
+    priceCurrency: plan.priceCurrency ?? 'INR',
+    priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+      .toISOString()
+      .split('T')[0],
+    eligibleDuration: {
+      '@type': 'QuantitativeValue',
+      value: plan.billingDuration,
+    },
+    url: plan.url,
+    availability: plan.availability ?? 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'MatchPartner',
+      url: 'https://matchpartner.in',
+    },
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export function generateBreadcrumbJsonLd(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',

@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { generateMetadata, seoConfigs } from "@/lib/seo";
+import { generateMetadata, generateBreadcrumbJsonLd, seoConfigs } from "@/lib/seo";
 import Image from "next/image";
 import WaitlistForm from "@/components/WaitlistForm";
 
 export const metadata: Metadata = generateMetadata(seoConfigs.brahminMatrimony);
 
 export default function BrahminMatrimonyPage() {
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: "Home", url: "https://matchpartner.in" },
+    { name: "Matrimony", url: "https://matchpartner.in/browse" },
+    { name: "Brahmin Matrimony", url: "https://matchpartner.in/matrimony/brahmin-brides" },
+  ]);
+
   const brahminJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -33,7 +39,11 @@ export default function BrahminMatrimonyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(brahminJsonLd) }}
       />
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-primary/10 to-accent/10 py-16">

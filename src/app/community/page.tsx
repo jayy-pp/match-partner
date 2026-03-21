@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Community - MatchPartner",
@@ -117,8 +118,17 @@ export default function CommunityPage() {
     }
   ];
 
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: "Home", url: "https://matchpartner.in" },
+    { name: "Community", url: "https://matchpartner.in/community" },
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

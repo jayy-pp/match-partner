@@ -156,12 +156,67 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "MatchPartner",
+    alternateName: "MatchPartner Hindu Matrimony",
     url: "https://matchpartner.in",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://matchpartner.in/search?q={search_term_string}",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://matchpartner.in/search?q={search_term_string}",
+      },
       "query-input": "required name=search_term_string",
     },
+  };
+
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://matchpartner.in/#localbusiness",
+    name: "MatchPartner Hindu Matrimony",
+    description:
+      "India's most trusted Hindu matrimony platform with Aadhaar-verified profiles, AI matchmaking & horoscope compatibility.",
+    url: "https://matchpartner.in",
+    telephone: "+91-84604-88076",
+    email: "hello@matchpartner.in",
+    image: "https://matchpartner.in/images/logo.png",
+    logo: "https://matchpartner.in/images/logo.png",
+    priceRange: "₹0 - ₹4999",
+    currenciesAccepted: "INR",
+    paymentAccepted: "Cash, Credit Card, Debit Card, UPI, Net Banking",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "102, Supan Apartment, Unchi Gali, Shamlaji Pole, Raipur",
+      addressLocality: "Ahmedabad",
+      addressRegion: "Gujarat",
+      postalCode: "380001",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "23.0225",
+      longitude: "72.5714",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "2500",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    sameAs: [
+      "https://facebook.com/matchpartner",
+      "https://instagram.com/matchpartner",
+      "https://twitter.com/matchpartnerin",
+      "https://linkedin.com/company/matchpartner",
+    ],
   };
 
   return (
@@ -187,6 +242,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
       </head>

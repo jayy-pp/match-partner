@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateMetadata, seoConfigs } from "@/lib/seo";
+import { generateMetadata, generateBreadcrumbJsonLd, seoConfigs } from "@/lib/seo";
 
 export const metadata: Metadata = generateMetadata(seoConfigs.successStories);
 
@@ -61,8 +61,64 @@ export default function SuccessStoriesPage() {
     },
   ];
 
+  // Review schema — Google can surface individual testimonials as rich snippets
+  const reviewsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://matchpartner.in/#service",
+    name: "MatchPartner Hindu Matrimony",
+    description: "India's most trusted Hindu matrimony platform with Aadhaar-verified profiles and AI matchmaking.",
+    url: "https://matchpartner.in",
+    provider: {
+      "@type": "Organization",
+      name: "MatchPartner",
+      url: "https://matchpartner.in",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "2500",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: successStories.map((story, index) => ({
+      "@type": "Review",
+      "@id": `https://matchpartner.in/success-stories#review-${index + 1}`,
+      author: {
+        "@type": "Person",
+        name: story.couple,
+      },
+      reviewBody: story.story,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
+      },
+      datePublished: "2024-01-01",
+      itemReviewed: {
+        "@type": "Service",
+        name: "MatchPartner Hindu Matrimony",
+        url: "https://matchpartner.in",
+      },
+    })),
+  };
+
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: "Home", url: "https://matchpartner.in" },
+    { name: "Success Stories", url: "https://matchpartner.in/success-stories" },
+  ]);
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/5 to-accent/5 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

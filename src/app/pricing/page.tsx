@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { generateMetadata, seoConfigs } from "@/lib/seo";
+import { generateMetadata, generateBreadcrumbJsonLd, seoConfigs } from "@/lib/seo";
 
 export const metadata: Metadata = generateMetadata(seoConfigs.pricing);
 
@@ -145,11 +145,115 @@ export default function PricingPage() {
     })),
   };
 
+  // Offer/Product schema — one per paid plan for rich snippets
+  const pricingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "MatchPartner Matrimony Plans",
+    description: "Hindu matrimony subscription plans with Aadhaar-verified profiles and AI matchmaking",
+    url: "https://matchpartner.in/pricing",
+    numberOfItems: 4,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Product",
+          name: "MatchPartner Free Basic",
+          description: "Get started on your journey to find a life partner with free profile creation and basic search.",
+          url: "https://matchpartner.in/pricing",
+          brand: { "@type": "Brand", name: "MatchPartner" },
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "INR",
+            availability: "https://schema.org/InStock",
+            url: "https://matchpartner.in/register",
+            seller: { "@type": "Organization", name: "MatchPartner" },
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Product",
+          name: "MatchPartner Premium Plan",
+          description: "Unlimited interests, full chat & video calls, AI-powered recommendations and horoscope matching for 3 months.",
+          url: "https://matchpartner.in/pricing",
+          brand: { "@type": "Brand", name: "MatchPartner" },
+          offers: {
+            "@type": "Offer",
+            price: "999",
+            priceCurrency: "INR",
+            priceValidUntil: "2027-03-21",
+            availability: "https://schema.org/InStock",
+            url: "https://matchpartner.in/register?plan=premium",
+            seller: { "@type": "Organization", name: "MatchPartner" },
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "Product",
+          name: "MatchPartner Gold Plan",
+          description: "Priority profile listing, monthly profile boost, dedicated email support and video profile for 6 months.",
+          url: "https://matchpartner.in/pricing",
+          brand: { "@type": "Brand", name: "MatchPartner" },
+          offers: {
+            "@type": "Offer",
+            price: "2499",
+            priceCurrency: "INR",
+            priceValidUntil: "2027-03-21",
+            availability: "https://schema.org/InStock",
+            url: "https://matchpartner.in/register?plan=gold",
+            seller: { "@type": "Organization", name: "MatchPartner" },
+          },
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        item: {
+          "@type": "Product",
+          name: "MatchPartner Elite Plan",
+          description: "Dedicated relationship manager, background verification badge, personalized matchmaking and VIP badge for 12 months.",
+          url: "https://matchpartner.in/pricing",
+          brand: { "@type": "Brand", name: "MatchPartner" },
+          offers: {
+            "@type": "Offer",
+            price: "4999",
+            priceCurrency: "INR",
+            priceValidUntil: "2027-03-21",
+            availability: "https://schema.org/InStock",
+            url: "https://matchpartner.in/register?plan=elite",
+            seller: { "@type": "Organization", name: "MatchPartner" },
+          },
+        },
+      },
+    ],
+  };
+
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: "Home", url: "https://matchpartner.in" },
+    { name: "Pricing", url: "https://matchpartner.in/pricing" },
+  ]);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Hero Section */}
