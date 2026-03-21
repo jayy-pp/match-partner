@@ -7,11 +7,12 @@ export interface SEOConfig {
   canonical?: string
   noindex?: boolean
   ogImage?: string
+  ogType?: 'website' | 'article' | 'profile'
 }
 
 export function generateMetadata(config: SEOConfig): Metadata {
   const baseUrl = 'https://matchpartner.in'
-  
+
   return {
     title: config.title,
     description: config.description,
@@ -21,12 +22,16 @@ export function generateMetadata(config: SEOConfig): Metadata {
       description: config.description,
       url: config.canonical || baseUrl,
       siteName: 'MatchPartner',
+      type: config.ogType || 'website',
+      locale: 'en_IN',
+      countryName: 'India',
       images: config.ogImage ? [
         {
           url: config.ogImage,
           width: 1200,
           height: 630,
           alt: config.title,
+          type: 'image/jpeg',
         }
       ] : [
         {
@@ -34,10 +39,9 @@ export function generateMetadata(config: SEOConfig): Metadata {
           width: 1200,
           height: 630,
           alt: 'MatchPartner - Trusted Hindu Matrimony Platform',
+          type: 'image/jpeg',
         }
       ],
-      locale: 'en_IN',
-      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
@@ -68,7 +72,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
 export const seoConfigs = {
   home: {
     title: 'MatchPartner — #1 Trusted Hindu Matrimony Site | 10,000+ Verified Profiles',
-    description: 'Find your perfect Hindu life partner on MatchPartner. 10,000+ Aadhaar-verified profiles, AI-powered matchmaking, horoscope compatibility & family collaboration tools. Join free today!',
+    description: 'Find your perfect Hindu life partner. 10,000+ Aadhaar-verified profiles, AI matchmaking & horoscope compatibility. Join free!',
     keywords: [
       'Hindu matrimony', 'Hindu marriage', 'Indian matchmaking', 'matrimonial site',
       'verified profiles', 'Aadhaar verified matrimony', 'NRI matrimony', 'bride groom search',
@@ -76,33 +80,37 @@ export const seoConfigs = {
       'Prajapati matrimony', 'Maru Prajapati matrimony', 'AI matchmaking', 'horoscope matching'
     ],
     canonical: 'https://matchpartner.in',
+    ogType: 'website' as const,
   },
   browse: {
     title: 'Browse Hindu Matrimony Profiles | Verified Brides & Grooms | MatchPartner',
-    description: 'Browse 10,000+ verified Hindu matrimony profiles. Filter by community, education, profession & location. Find your perfect match with advanced search filters.',
+    description: 'Browse 10,000+ verified Hindu matrimony profiles. Filter by community, education & location. Find your perfect match today!',
     keywords: [
       'browse matrimony profiles', 'Hindu brides', 'Hindu grooms', 'verified profiles',
       'matrimony search', 'community wise matrimony', 'professional matrimony'
     ],
     canonical: 'https://matchpartner.in/browse',
+    ogType: 'website' as const,
   },
   pricing: {
     title: 'MatchPartner Pricing Plans | Free Registration | Premium Matrimony Services',
-    description: 'Free profile creation on MatchPartner. Premium plans from ₹999 with AI matchmaking, priority support & verified matches. Compare plans & choose the best for you.',
+    description: 'Free profile creation. Premium plans from ₹999 with AI matchmaking, priority support & verified matches. Compare & choose!',
     keywords: [
       'matrimony pricing', 'matrimony plans', 'free matrimony registration',
       'premium matrimony services', 'matchmaking plans'
     ],
     canonical: 'https://matchpartner.in/pricing',
+    ogType: 'website' as const,
   },
   successStories: {
     title: 'Hindu Marriage Success Stories | Real Couples | MatchPartner Testimonials',
-    description: 'Read inspiring Hindu marriage success stories from MatchPartner couples. Real testimonials from families who found their perfect match through our platform.',
+    description: 'Read inspiring Hindu marriage success stories from MatchPartner couples. Real testimonials from families who found love.',
     keywords: [
       'marriage success stories', 'Hindu wedding stories', 'matrimony testimonials',
       'real couples', 'marriage testimonials', 'wedding success'
     ],
     canonical: 'https://matchpartner.in/success-stories',
+    ogType: 'article' as const,
   },
 }
 

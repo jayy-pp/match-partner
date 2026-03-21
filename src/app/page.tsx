@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title:
     "MatchPartner — #1 Trusted Hindu Matrimony Site | 10,000+ Verified Profiles",
   description:
-    "Find your perfect Hindu life partner on MatchPartner. 10,000+ Aadhaar-verified profiles, AI-powered matchmaking, horoscope compatibility & family collaboration tools. Join free today!",
+    "Find your perfect Hindu life partner. 10,000+ Aadhaar-verified profiles, AI matchmaking & horoscope compatibility. Join free!",
   keywords: [
     "Hindu matrimony",
     "Hindu marriage",
@@ -37,12 +37,17 @@ export const metadata: Metadata = {
     description:
       "10,000+ Aadhaar-verified profiles. AI-powered matchmaking. Horoscope compatibility. Join free!",
     url: "https://matchpartner.in",
+    siteName: "MatchPartner",
+    type: "website",
+    locale: "en_IN",
+    countryName: "India",
     images: [
       {
         url: "https://matchpartner.in/images/wedding/hero-indian-couple.jpg",
         width: 1200,
         height: 630,
         alt: "MatchPartner Hindu Matrimony - Verified Profiles",
+        type: "image/jpeg",
       },
     ],
   },

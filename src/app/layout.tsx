@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | MatchPartner - Hindu Matrimony",
   },
   description:
-    "India's most trusted Hindu matrimony platform with 10,000+ Aadhaar-verified profiles. Find your perfect life partner through AI-powered matchmaking, horoscope compatibility, and family collaboration tools. Join free today!",
+    "India's most trusted Hindu matrimony platform. 10,000+ Aadhaar-verified profiles, AI matchmaking & horoscope compatibility. Join free!",
   keywords: [
     "Hindu matrimony",
     "Hindu marriage",
@@ -43,19 +43,21 @@ export const metadata: Metadata = {
     "MatchPartner",
   ],
   openGraph: {
-    type: "website",
-    locale: "en_IN",
+    title: "MatchPartner — #1 Trusted Hindu Matrimony Platform",
+    description:
+      "India's most trusted Hindu matrimony platform. 10,000+ Aadhaar-verified profiles, AI matchmaking & horoscope compatibility. Join free!",
     url: "https://matchpartner.in",
     siteName: "MatchPartner",
-    title: "MatchPartner — #1 Trusted Hindu Matrimony Site",
-    description:
-      "10,000+ Aadhaar-verified profiles. AI-powered matchmaking. Horoscope compatibility. Family collaboration tools. Join India's most trusted Hindu matrimony platform free!",
+    type: "website",
+    locale: "en_IN",
+    countryName: "India",
     images: [
       {
         url: "https://matchpartner.in/images/wedding/hero-indian-couple.jpg",
         width: 1200,
         height: 630,
-        alt: "MatchPartner - Trusted Hindu Matrimony Platform",
+        alt: "MatchPartner Hindu Matrimony - Verified Profiles",
+        type: "image/jpeg",
       },
     ],
   },
