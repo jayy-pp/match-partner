@@ -3,11 +3,66 @@
 import { useEffect, useState } from "react";
 
 const messages = [
-  { name: "Priya", city: "Mumbai", action: "joined the waitlist", time: "3 min ago" },
-  { name: "Rajesh", city: "Delhi", action: "joined the waitlist", time: "7 min ago" },
-  { name: "Sunita", city: "Bangalore", action: "signed up for early access", time: "2 min ago" },
-  { name: "Amit", city: "Pune", action: "joined the waitlist", time: "5 min ago" },
-  { name: "Deepa", city: "Chennai", action: "signed up for early access", time: "1 min ago" },
+  {
+    name: "Ramesh Kumar",
+    city: "Bhinmal",
+    action: "joined the waitlist",
+    time: "3 min ago",
+  },
+  {
+    name: "Mohanlal Ji",
+    city: "Ahore",
+    action: "joined the waitlist",
+    time: "7 min ago",
+  },
+  {
+    name: "Kanhaiyalal",
+    city: "Jaswantpura",
+    action: "signed up for early access",
+    time: "2 min ago",
+  },
+  {
+    name: "Girdhar Singh",
+    city: "Sanchore",
+    action: "joined the waitlist",
+    time: "5 min ago",
+  },
+  {
+    name: "Babulal Ji",
+    city: "Raniwara",
+    action: "signed up for early access",
+    time: "1 min ago",
+  },
+  {
+    name: "Shyamlal",
+    city: "Sayla",
+    action: "joined the waitlist",
+    time: "4 min ago",
+  },
+  {
+    name: "Mangilal",
+    city: "Bagoda",
+    action: "signed up for early access",
+    time: "6 min ago",
+  },
+  {
+    name: "Dinesh Kumar",
+    city: "Jalore",
+    action: "joined the waitlist",
+    time: "8 min ago",
+  },
+  {
+    name: "Hariram",
+    city: "Reodar",
+    action: "signed up for early access",
+    time: "9 min ago",
+  },
+  {
+    name: "Pukhraj Ji",
+    city: "Sirohi",
+    action: "joined the waitlist",
+    time: "11 min ago",
+  },
 ];
 
 const pastelColors = [
