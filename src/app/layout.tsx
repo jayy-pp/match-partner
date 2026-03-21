@@ -107,7 +107,7 @@ export default function RootLayout({
     foundingDate: "2024",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "B 405, Ganesh Glory 11, S G Highway",
+      streetAddress: "102, Supan Apartment, Unchi Gali, Shamlaji Pole, Raipur",
       addressLocality: "Ahmedabad",
       addressRegion: "Gujarat",
       addressCountry: "IN",

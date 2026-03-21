@@ -106,8 +106,9 @@ export default function Footer() {
                 />
               </svg>
               <p className="text-white/70 text-sm leading-relaxed">
-                B 405, Ganesh Glory 11,
-                <br />S G Highway, Ahmedabad (Gujarat)
+                102, Supan Apartment, Unchi Gali,
+                <br />
+                Shamlaji Pole, Raipur, Ahmedabad (Gujarat)
               </p>
             </div>
             <div className="flex items-start gap-3">
