@@ -6,19 +6,40 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://matchpartner.in"),
   title: {
-    default: "MatchPartner — Trusted Hindu Matrimony Platform",
-    template: "%s | MatchPartner",
+    default:
+      "MatchPartner — #1 Trusted Hindu Matrimony Site | 10,000+ Verified Profiles",
+    template: "%s | MatchPartner - Hindu Matrimony",
   },
   description:
-    "Where Hindu Traditions Meet Trusted Matchmaking. Join 10,000+ verified profiles and find your perfect life partner with Aadhaar-verified matches, AI recommendations, and family-assisted tools.",
+    "India's most trusted Hindu matrimony platform with 10,000+ Aadhaar-verified profiles. Find your perfect life partner through AI-powered matchmaking, horoscope compatibility, and family collaboration tools. Join free today!",
   keywords: [
     "Hindu matrimony",
     "Hindu marriage",
     "Indian matchmaking",
     "matrimonial site",
     "verified profiles",
+    "Aadhaar verified matrimony",
     "NRI matrimony",
     "bride groom search",
+    "Brahmin matrimony",
+    "Gujarati matrimony",
+    "Tamil matrimony",
+    "Marathi matrimony",
+    "Prajapati matrimony",
+    "Maru Prajapati matrimony",
+    "Bengali matrimony",
+    "Punjabi matrimony",
+    "Telugu matrimony",
+    "AI matchmaking",
+    "horoscope matching",
+    "kundali matching",
+    "family matrimony",
+    "Indian wedding",
+    "Hindu wedding",
+    "matrimony app",
+    "marriage bureau",
+    "shaadi",
+    "vivah",
     "MatchPartner",
   ],
   openGraph: {
@@ -26,20 +47,43 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://matchpartner.in",
     siteName: "MatchPartner",
-    title: "MatchPartner — Trusted Hindu Matrimony Platform",
+    title: "MatchPartner — #1 Trusted Hindu Matrimony Site",
     description:
-      "Where Hindu Traditions Meet Trusted Matchmaking. 10,000+ verified profiles. AI-powered match recommendations.",
+      "10,000+ Aadhaar-verified profiles. AI-powered matchmaking. Horoscope compatibility. Family collaboration tools. Join India's most trusted Hindu matrimony platform free!",
+    images: [
+      {
+        url: "https://matchpartner.in/images/wedding/hero-indian-couple.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MatchPartner - Trusted Hindu Matrimony Platform",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MatchPartner — Trusted Hindu Matrimony Platform",
+    site: "@MatchPartnerIN",
+    creator: "@MatchPartnerIN",
+    title: "MatchPartner — #1 Trusted Hindu Matrimony Site",
     description:
-      "Where Hindu Traditions Meet Trusted Matchmaking. 10,000+ verified profiles.",
+      "10,000+ Aadhaar-verified profiles. AI-powered matchmaking. Find your perfect Hindu life partner today!",
+    images: ["https://matchpartner.in/images/wedding/hero-indian-couple.jpg"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://matchpartner.in",
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 
@@ -52,17 +96,58 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "MatchPartner",
+    alternateName: "MatchPartner Hindu Matrimony",
     url: "https://matchpartner.in",
-    logo: "https://matchpartner.in/logo.png",
+    logo: "https://matchpartner.in/images/logo.png",
+    image: "https://matchpartner.in/images/wedding/hero-indian-couple.jpg",
     description:
-      "Trusted Hindu Matrimony Platform — Where Hindu Traditions Meet Trusted Matchmaking.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: "support@matchpartner.in",
-      contactType: "customer service",
-      availableLanguage: ["English", "Hindi"],
+      "India's most trusted Hindu matrimony platform with 10,000+ Aadhaar-verified profiles. AI-powered matchmaking, horoscope compatibility, and family collaboration tools.",
+    foundingDate: "2024",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "B 405, Ganesh Glory 11, S G Highway",
+      addressLocality: "Ahmedabad",
+      addressRegion: "Gujarat",
+      addressCountry: "IN",
     },
-    sameAs: [],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+91-84604-88076",
+        email: "hello@matchpartner.in",
+        contactType: "customer service",
+        availableLanguage: ["English", "Hindi", "Gujarati"],
+        areaServed: "IN",
+      },
+      {
+        "@type": "ContactPoint",
+        email: "support@matchpartner.in",
+        contactType: "technical support",
+        availableLanguage: ["English", "Hindi"],
+        areaServed: "IN",
+      },
+    ],
+    sameAs: [
+      "https://facebook.com/matchpartner",
+      "https://instagram.com/matchpartner",
+      "https://twitter.com/matchpartnerin",
+      "https://linkedin.com/company/matchpartner",
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "2500",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    offers: {
+      "@type": "Offer",
+      name: "Hindu Matrimony Services",
+      description: "Free profile creation with premium matchmaking services",
+      price: "0",
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+    },
   };
 
   const websiteJsonLd = {

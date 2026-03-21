@@ -1,20 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { generateMetadata, seoConfigs } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pricing Plans — MatchPartner",
-  description:
-    "Affordable Hindu matrimony plans for every budget. From free profile creation to elite personalized matchmaking — find the perfect plan to discover your life partner.",
-  openGraph: {
-    title: "Pricing Plans — MatchPartner",
-    description:
-      "Affordable Hindu matrimony plans starting free. Premium, Gold & Elite tiers with AI matching, horoscope compatibility, and dedicated relationship managers.",
-    url: "https://matchpartner.in/pricing",
-  },
-  alternates: {
-    canonical: "https://matchpartner.in/pricing",
-  },
-};
+export const metadata: Metadata = generateMetadata(seoConfigs.pricing);
 
 const faqs = [
   {

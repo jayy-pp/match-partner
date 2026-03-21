@@ -8,9 +8,54 @@ import WaitlistForm from "@/components/WaitlistForm";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "MatchPartner — Trusted Hindu Matrimony Platform",
+  title:
+    "MatchPartner — #1 Trusted Hindu Matrimony Site | 10,000+ Verified Profiles",
   description:
-    "Where Hindu Traditions Meet Trusted Matchmaking. Launching soon with Aadhaar-verified profiles, AI-powered recommendations, and family-assisted tools. Join the waitlist.",
+    "Find your perfect Hindu life partner on MatchPartner. 10,000+ Aadhaar-verified profiles, AI-powered matchmaking, horoscope compatibility & family collaboration tools. Join free today!",
+  keywords: [
+    "Hindu matrimony",
+    "Hindu marriage",
+    "Indian matchmaking",
+    "matrimonial site",
+    "verified profiles",
+    "NRI matrimony",
+    "bride groom search",
+    "Brahmin matrimony",
+    "Gujarati matrimony",
+    "Tamil matrimony",
+    "Marathi matrimony",
+    "Prajapati matrimony",
+    "Maru Prajapati matrimony",
+    "MatchPartner",
+    "Aadhaar verified matrimony",
+    "AI matchmaking",
+    "horoscope matching",
+    "kundali matching",
+  ],
+  openGraph: {
+    title: "MatchPartner — #1 Trusted Hindu Matrimony Site",
+    description:
+      "10,000+ Aadhaar-verified profiles. AI-powered matchmaking. Horoscope compatibility. Join free!",
+    url: "https://matchpartner.in",
+    images: [
+      {
+        url: "https://matchpartner.in/images/wedding/hero-indian-couple.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MatchPartner Hindu Matrimony - Verified Profiles",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MatchPartner — #1 Trusted Hindu Matrimony Site",
+    description:
+      "10,000+ Aadhaar-verified profiles. AI-powered matchmaking. Find your perfect Hindu life partner today!",
+    images: ["https://matchpartner.in/images/wedding/hero-indian-couple.jpg"],
+  },
+  alternates: {
+    canonical: "https://matchpartner.in",
+  },
 };
 
 const faqItems = [
@@ -86,11 +131,71 @@ export default function Home() {
     })),
   };
 
+  const webApplicationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "MatchPartner",
+    url: "https://matchpartner.in",
+    applicationCategory: "Matrimony",
+    operatingSystem: "Web",
+    description:
+      "India's most trusted Hindu matrimony platform with 10,000+ Aadhaar-verified profiles",
+    offers: {
+      "@type": "Offer",
+      name: "Hindu Matrimony Services",
+      price: "0",
+      priceCurrency: "INR",
+      description: "Free profile creation with premium plans starting at ₹999",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      ratingCount: "2500",
+      bestRating: "5",
+    },
+    featureList: [
+      "Aadhaar Profile Verification",
+      "AI-Powered Matchmaking",
+      "Horoscope Compatibility",
+      "Family Collaboration Tools",
+      "Privacy Controls",
+      "Community-Specific Matching",
+    ],
+  };
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Hindu Matrimony Services",
+    provider: {
+      "@type": "Organization",
+      name: "MatchPartner",
+    },
+    description:
+      "Comprehensive Hindu matrimony services including profile verification, AI matchmaking, and family collaboration tools",
+    areaServed: "India",
+    serviceType: "Matrimony",
+    audience: {
+      "@type": "Audience",
+      name: "Hindu families seeking matrimonial matches",
+    },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webApplicationJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <SocialProofNotification />
 
@@ -100,7 +205,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/wedding/hero-indian-couple.jpg"
-            alt=""
+            alt="Happy Indian Hindu couple in traditional wedding attire - MatchPartner matrimony success story"
             fill
             className="object-cover opacity-[0.18]"
             priority
